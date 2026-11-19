@@ -34,6 +34,10 @@ For development without Compose, run the API from `backend/` with `mvn spring-bo
 | `results` | Final score and grading metadata for a submitted attempt |
 | `audit_log` | Actor, action, entity, request IP, and structured event details |
 
+## Teacher exam creation
+
+Teachers can create a draft exam with `POST /api/teacher/exams`. The request includes `createdById` (an active teacher UUID), title, subject, duration (5–240 minutes), start and end timestamps, total marks, and passing marks. The API verifies the teacher role and validates the schedule and marks before saving. The current portal does not yet include sign-in, so the teacher UUID must be provided by the caller.
+
 ## Project documents
 
 - [Software Requirements Specification](SRS.pdf)
